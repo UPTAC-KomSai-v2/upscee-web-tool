@@ -21,6 +21,7 @@ UPSCEE-WEB-TOOL/
 │   │   │   └── up-logo.png
 │   │   ├── components/
 │   │   │   ├── CourseEvaluationForm.vue
+|   |   |   ├── AnonymityPolicy.vue
 │   │   │   └── LikertScale.vue
 │   │   ├── router/
 │   │   ├── store/
