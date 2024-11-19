@@ -1,17 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <AnonymityPolicy v-if="!policyConfirmed" @confirmed="policyConfirmed = true" />
+    <CourseEvaluationForm v-else msg="Welcome to Your Course Evaluation System" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AnonymityPolicy from './components/AnonymityPolicy.vue';
+import CourseEvaluationForm from './components/CourseEvaluationForm.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    AnonymityPolicy,
+    CourseEvaluationForm,
+  },
+  data() {
+    return {
+      policyConfirmed: false, // Tracks whether the user has confirmed the anonymity policy
+    };
+  },
+};
 </script>
 
 <style>

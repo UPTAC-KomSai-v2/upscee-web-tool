@@ -1,13 +1,20 @@
 const express = require('express');
-const mongoose = require('./utils/db'); // Connect to MongoDB
-const cors = require('cors');
-const evaluationRoutes = require('./routes/evaluationRoutes');
+const connectDB = require('./utils/db');
+require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
 app.use(express.json());
+
+// Import routes
+const evaluationRoutes = require('./routes/evaluationRoutes');
+
+// Use routes
 app.use('/api/evaluation', evaluationRoutes);
 
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+connectDB(); // Connect to the database
