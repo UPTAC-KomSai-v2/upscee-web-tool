@@ -55,6 +55,7 @@ export default {
   data() {
     return {
       form: {
+        course: 'Buffer',
         strengths: '',
         improvements: '',
         confirmation: false,
@@ -85,12 +86,22 @@ export default {
   methods: {
     async submitEvaluation() {
       try {
-        const response = await fetch('/api/evaluation', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...this.form, responses: this.responses }),
+        const response = await fetch('http://localhost:8080/api/evaluations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                course: this.form.course,
+                rating: this.responses,
+                feedback: this.form.improvements,
+                strengths: this.form.strengths,
+                areasForImprovement: this.form.improvements,
+            }),
         });
-        if (!response.ok) throw new Error('Submission failed');
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Unknown error occurred');
+        }
+            
         alert('Submitted successfully');
       } catch (error) {
         alert('Error: ' + error.message);

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');  // Allow cross-origin requests
-const connectDB = require('./db');
+const connectDB = require('./utils/db');
 const evaluationRoutes = require('./routes/evaluationRoutes');
 
 // Middleware
