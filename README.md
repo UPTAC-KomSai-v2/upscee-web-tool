@@ -7,16 +7,32 @@ UPSCEE-WEB-TOOL/
 │   │   ├── models/
 │   │   ├── routes/
 │   │   ├── utils/
-│   │   ├── app.js
+│   │   └── app.js
+│   ├── .env
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
 ├── frontend/
 │   ├── public/
-│   │   ├── index.html
+│   │   ├── favicon.ico
+│   │   └── index.html
 │   ├── src/
-│   │   ├── asset/
+│   │   ├── assets/
+│   │   │   └── up-logo.png
 │   │   ├── components/
+│   │   │   ├── CourseEvaluationForm.vue
+│   │   │   └── LikertScale.vue
 │   │   ├── router/
 │   │   ├── store/
 │   │   ├── views/
-│   │   ├── App.vue/
-│   │   ├── main.js/
+│   │   ├── App.vue
+│   │   └── main.js
+│   ├── .gitignore
+│   ├── babel.config.js
+│   ├── jsconfig.json
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── README.md
+│   └── vue.config.js
+├── README.md
 ```
