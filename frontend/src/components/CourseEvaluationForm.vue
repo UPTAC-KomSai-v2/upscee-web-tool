@@ -119,6 +119,7 @@ export default {
 .question-block {
   display: flex;
   flex-direction: column;
+  text-align: left; /* Align text to the left */
 }
 
 .question-text {
@@ -144,6 +145,7 @@ export default {
 .textarea-label {
   display: flex;
   flex-direction: column;
+  text-align: left; /* Align text to the left */
 }
 
 .textarea-input {
@@ -156,6 +158,7 @@ export default {
 
 .checkbox-container {
   margin-top: 20px;
+  text-align: left; /* Align checkbox label to the left */
 }
 
 .submit-button {
@@ -173,7 +176,7 @@ export default {
 }
 
 .form-header {
-  text-align: center;
+  text-align: left; /* Align header text to the left */
   margin-bottom: 20px;
 }
 
@@ -185,9 +188,12 @@ export default {
 h1 {
   font-size: 24px;
   color: #800000; /* UP Maroon */
+  text-align: left; /* Align header to the left */
 }
 
 p {
   color: #333;
+  text-align: left; /* Align paragraphs to the left */
 }
 </style>
+
