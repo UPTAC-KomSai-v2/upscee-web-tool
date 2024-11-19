@@ -1,20 +1,13 @@
 const express = require('express');
 const connectDB = require('./utils/db');
-require('dotenv').config();
 
 const app = express();
+connectDB();
 
 app.use(express.json());
+app.use('/api/evaluation', require('./routes/evaluation.routes'));
+app.use('/api/questions', require('./routes/question.routes'));
 
-// Import routes
-const evaluationRoutes = require('./routes/evaluationRoutes');
-
-// Use routes
-app.use('/api/evaluation', evaluationRoutes);
-
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
 });
-
-connectDB(); // Connect to the database
