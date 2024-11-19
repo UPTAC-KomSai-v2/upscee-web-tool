@@ -1,6 +1,5 @@
 # Project Structure
 ```plaintext
-UPSCEE-WEB-TOOL/
 ├── backend/
 │   ├── src/
 │   │   ├── controllers/
@@ -21,7 +20,8 @@ UPSCEE-WEB-TOOL/
 │   │   │   └── up-logo.png
 │   │   ├── components/
 │   │   │   ├── CourseEvaluationForm.vue
-│   │   │   └── LikertScale.vue
+│   │   │   ├── LikertScale.vue
+│   │   │   └── AnonymityPolicy.vue  # Newly added component
 │   │   ├── router/
 │   │   ├── store/
 │   │   ├── views/
