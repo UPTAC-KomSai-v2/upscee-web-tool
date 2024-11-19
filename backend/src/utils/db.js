@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const connectDB = async () => {
   try {
-    const dbUri = process.env.MONGO_URI || 'mongodb://localhost:27017/upscee';
-    await mongoose.connect(dbUri, {
+    await mongoose.connect(process.env.DATABASE_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('Connected to MongoDB');
+    console.log('Database connected successfully');
   } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    process.exit(1); // Exit process with failure
+    console.error('Database connection failed:', error);
+    process.exit(1);
   }
 };
 
