@@ -90,11 +90,9 @@ export default {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                course: this.form.course,
-                rating: this.responses,
-                feedback: this.form.improvements,
+                responses: this.responses, 
                 strengths: this.form.strengths,
-                areasForImprovement: this.form.improvements,
+                improvements: this.form.improvements,
             }),
         });
         if (!response.ok) {
