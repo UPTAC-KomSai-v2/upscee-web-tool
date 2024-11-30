@@ -9,7 +9,8 @@ app.use(express.json());
 
 // Routes
 app.use('/api/evaluation', require('./routes/evaluationRoutes'));
-app.use('/api/courses', require('./routes/courseRoutes'));  // Added courses routes
+app.use('/api/courses', require('./routes/courseRoutes'));
+app.use('/api/students', require('./routes/studentRoutes'));
 
 // Server setup
 app.listen(process.env.PORT, () => {
