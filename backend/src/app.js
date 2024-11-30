@@ -1,21 +1,17 @@
 const express = require('express');
-const app = express();
-const cors = require('cors');  // Allow cross-origin requests
 const connectDB = require('./utils/db');
-const evaluationRoutes = require('./routes/evaluationRoutes');
+const app = express();
+
+connectDB();  // Connect to the database
 
 // Middleware
-app.use(express.json());  // For parsing application/json
-app.use(cors());  // Enable CORS for all routes
+app.use(express.json());
 
-// Connect to the database
-connectDB();
+// Routes
+app.use('/api/evaluation', require('./routes/evaluationRoutes'));
+app.use('/api/courses', require('./routes/courseRoutes'));  // Added courses routes
 
-// Use the routes
-app.use('/api/evaluations', evaluationRoutes);
-
-// Set up the server to listen on a port
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Server setup
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
 });
