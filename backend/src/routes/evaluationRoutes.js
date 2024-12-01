@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { submitEvaluation } = require('../controllers/evaluationController');
+const { submitEvaluation, getEvaluation } = require('../controllers/evaluationController');
 
-router.post('/', submitEvaluation);
+router.post('/student', submitEvaluation);
+router.get('/student', getEvaluation);
 
 module.exports = router;

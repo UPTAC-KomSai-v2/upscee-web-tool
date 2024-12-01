@@ -44,3 +44,44 @@ exports.submitEvaluation = async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
+
+exports.getEvaluation = async (req, res) => {
+    try {
+        const { student_id, course_id } = req.query;
+
+        // Validate required fields
+        if (!student_id || !course_id) {
+            return res.status(400).json({ message: 'Student ID and Course ID are required' });
+        }
+
+        // Check if the student and course exist
+        const student = await Student.findById(student_id);
+        const course = await Course.findById(course_id);
+
+        if (!student) {
+            return res.status(404).json({ message: 'Student not found' });
+        }
+
+        if (!course) {
+            return res.status(404).json({ message: 'Course not found' });
+        }
+
+        // Find the evaluation for the given student and course (only one expected)
+        const evaluation = await Evaluation.findOne({ student_id, course_id })
+            .populate('student_id', 'student_id')  // Populating student data (if needed)
+            .populate('course_id', 'name'); // Populating course data (if needed)
+
+        if (!evaluation) {
+            return res.status(404).json({ message: 'No evaluation found for this student in the specified course' });
+        }
+
+        // Return the evaluation
+        res.status(200).json({
+            message: 'Evaluation retrieved successfully',
+            data: evaluation,
+        });
+    } catch (error) {
+        console.error('Error retrieving evaluation:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
