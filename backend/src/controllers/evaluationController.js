@@ -119,7 +119,7 @@ exports.resetEvaluation = async (req, res) => {
         evaluation.strengths = strengths;
         evaluation.improvements = improvements;
 
-        // Save the updated evaluation
+        // Save the updated evaluation (Mongoose will update the 'updatedAt' field automatically)
         await evaluation.save();
 
         // Return the updated evaluation

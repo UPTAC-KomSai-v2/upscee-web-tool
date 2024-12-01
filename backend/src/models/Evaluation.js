@@ -23,10 +23,6 @@ const evaluationSchema = new mongoose.Schema({
     ref: 'Course',  // Reference to the Course model
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+}, { timestamps: true }); // Automatically includes createdAt and updatedAt fields
 
 module.exports = mongoose.model('Evaluation', evaluationSchema);
